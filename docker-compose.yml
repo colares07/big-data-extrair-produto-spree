@@ -1,0 +1,31 @@
+version: "3.7"
+services: 
+  spree:
+    container_name: "spree"
+    image: spreecommerce/spree:3.6.4
+    ports: 
+      - 3000:3000
+
+  extrator-api:
+    container_name: "extrator-api"
+    build: .
+    command: python extrair-produto-spree.py
+    volumes:
+      - .:/app
+    links:
+      - spree
+      - extrator-db:database
+    env_file:
+      - config.env 
+    depends_on: 
+      - spree
+
+  extrator-db:
+    container_name: "extrator-db"
+    image: mongo
+    ports:
+      - 27071:27017
+    volumes: 
+      - ./db-data:/data/db
+
+  
