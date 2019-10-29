@@ -1,6 +1,9 @@
 FROM python:3-slim
 
-ADD . /app
+COPY . /app
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt
+
+ENTRYPOINT [ "python" ]
+CMD [ "extrair-produto-spree.py" ]

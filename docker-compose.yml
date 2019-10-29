@@ -8,8 +8,7 @@ services:
 
   extrator-api:
     container_name: "extrator-api"
-    build: .
-    command: python extrair-produto-spree.py
+    image: colares07/extrair-produto-spree
     volumes:
       - .:/app
     links:
