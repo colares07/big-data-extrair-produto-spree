@@ -31,4 +31,8 @@ Para a execução
 docker-compose down
 ```
 
+### Leitura dos dados extraidos 
+
+Os dados estão disponível na collection **produtos** no banco Mongo, que pode ser acessado pelo **localhost:27071**.
+
 
